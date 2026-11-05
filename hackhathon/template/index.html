@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafeFile Pro | Cybersecurity Scanner</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">⬡</span>
+        SafeFile <span>Pro</span>
+    </div>
+
+    <div class="nav-status">
+        <span class="online-dot"></span>
+        Security System Online
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <div class="tag">ADVANCED THREAT DETECTION</div>
+
+        <h1>Protect Yourself From<br>
+            <span>Digital Threats.</span>
+        </h1>
+
+        <p>
+            Scan suspicious files and URLs before interacting with them.
+            Detect potential malware and phishing indicators.
+        </p>
+
+    </section>
+
+
+    <section class="scanner-card">
+
+        <div class="tabs">
+
+            <button class="tab active" id="fileTab">
+                File Scanner
+            </button>
+
+            <button class="tab" id="urlTab">
+                URL Scanner
+            </button>
+
+        </div>
+
+
+        <div class="scan-area" id="fileSection">
+
+            <div class="upload-box" id="uploadBox">
+
+                <div class="upload-icon">↑</div>
+
+                <h2>Upload a suspicious file</h2>
+
+                <p>Drag and drop your file here or browse</p>
+
+                <input type="file" id="fileInput" hidden>
+
+                <button class="browse-btn" id="browseBtn">
+                    Choose File
+                </button>
+
+                <p class="small-text">
+                    Maximum file size: 20 MB
+                </p>
+
+                <p id="selectedFile"></p>
+
+            </div>
+
+            <button class="scan-btn" id="scanFileBtn">
+                Analyze File →
+            </button>
+
+        </div>
+
+
+        <div class="scan-area hidden" id="urlSection">
+
+            <h2>Check a suspicious URL</h2>
+
+            <p>Enter a website address to analyze its security indicators.</p>
+
+            <input
+                type="text"
+                id="urlInput"
+                placeholder="https://example.com"
+                class="url-input"
+            >
+
+            <button class="scan-btn" id="scanUrlBtn">
+                Analyze URL →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section id="loading" class="loading hidden">
+
+        <div class="loader"></div>
+
+        <p>Analyzing security indicators...</p>
+
+    </section>
+
+
+    <section id="results" class="results hidden">
+
+        <h2>Security Analysis Report</h2>
+
+        <div class="result-card">
+
+            <div class="score-area">
+
+                <div class="score-circle" id="scoreCircle">
+
+                    <span id="riskScore">0</span>
+
+                    <small>/100</small>
+
+                </div>
+
+                <div>
+
+                    <h3 id="riskStatus">Analysis Complete</h3>
+
+                    <p id="resultDescription">
+                        Your security report is ready.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="details">
+
+                <p><strong>Target:</strong>
+                    <span id="targetName"></span>
+                </p>
+
+                <p><strong>SHA-256:</strong>
+                    <span id="hashValue">Not applicable</span>
+                </p>
+
+                <p><strong>File Size:</strong>
+                    <span id="fileSize">Not applicable</span>
+                </p>
+
+            </div>
+
+
+            <h3>Detected Security Indicators</h3>
+
+            <div id="findingsList"></div>
+
+
+            <h3>VirusTotal Intelligence</h3>
+
+            <div id="vtReport">
+                <p>Waiting for reputation information...</p>
+            </div>
+
+            <p class="disclaimer">
+                This report provides automated security indicators,
+                not a guarantee that a file or website is safe.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>SafeFile Pro © 2026 | Cybersecurity Awareness Project</p>
+
+        <p>Stay alert. Stay protected.</p>
+
+    </footer>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
